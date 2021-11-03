@@ -1,24 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="app">
+      <header className="app__header">
+        BROCCOLI & CO.
       </header>
+      <main className="app__body">
+        <h1>A better way to enjoy every day.</h1>
+        <p>Be the first to know when we launch.</p>
+        <button>Request an invite</button>
+      </main>
+      <footer className="app__footer">
+        <p>made with [love] in Melbourne.</p>
+        <p>copy 2016 Broccoli & Co. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
