@@ -1,11 +1,18 @@
 import React from "react";
 
 interface ModalInterface {
-    show: boolean
+  show: boolean;
+  children: React.ReactChildren;
+  onClose: () => void;
 }
 
-export function Modal({ show }: ModalInterface) {
-    return <div>Modal</div>
+export function Modal({ show, children, onClose }: ModalInterface) {
+  return (
+    <div>
+      <section className="modal-main">{children}</section>
+      <button type="button">Close</button>
+    </div>
+  );
 }
 
 export default Modal;

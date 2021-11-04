@@ -1,12 +1,10 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 
 function App() {
   return (
     <div className="app">
-      <header className="app__header">
-        BROCCOLI & CO.
-      </header>
+      <header className="app__header">BROCCOLI & CO.</header>
       <main className="app__body">
         <h1>A better way to enjoy every day.</h1>
         <p>Be the first to know when we launch.</p>
