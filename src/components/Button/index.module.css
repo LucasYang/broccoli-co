@@ -1,0 +1,26 @@
+.btn {
+  background-color: white;
+  color: #ADADAD;
+  position: relative;
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 2;
+  height: 50px;
+  transition: all 200ms linear;
+  width: 240px;
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+  cursor: pointer;
+  outline: 0;
+  border: 1px solid #ADADAD;
+}
+
+.btn:hover {
+  border: 1px solid #1d1d1d;
+  background-color: #A1A1A1;
+  color: white;
+}
