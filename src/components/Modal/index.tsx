@@ -4,7 +4,7 @@ import modalStyles from './index.module.css';
 interface ModalInterface {
   show: boolean;
   children: React.ReactElement;
-  onClose: () => void;
+  onClose: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 export function Modal({ show, children, onClose }: ModalInterface) {
