@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import Form from "../../components/Form";
 import { isEmailValid, stringsMatch, NAME_MIN_LENGTH } from "../../utils/formValidation";
+import Button from "../../components/Button";
+import styles from './landing__form.module.css';
 
 export function LandingPageForm() {
   const emailRef = useRef<HTMLInputElement | null>();
@@ -40,47 +42,51 @@ export function LandingPageForm() {
       {({ inputErrors, register }: any) => {
         // form content
         return (
-          <div>
+          <div className={styles.landingFormContainer}>
+            <div className={styles.landingFormHeader}>
+              <h1 className={styles.landingFormHeading}>Request an invite</h1>
+              <hr className={styles.landingFormHR} />
+            </div>
             <fieldset className="form-fieldset">
-              <label htmlFor="fullName">
-                Full name
-                <input name="fullName" type="text" defaultValue="" ref={(ref) => register(ref, 'fullName', validateFullName)} />
-              </label>
+              <input
+                className={styles.landingFormInput}
+                name="fullName"
+                type="text"
+                placeholder="Full name"
+                ref={(ref) => register(ref, 'fullName', validateFullName)} />
               <div>{inputErrors["fullName"] ? "error" : null}</div>
             </fieldset>
             <fieldset className="form-fieldset">
-              <label htmlFor="email">
-                Email
-                <input
-                  name="email"
-                  type="email"
-                  defaultValue=""
-                  ref={(ref) => {
-                    emailRef.current = ref;
-                    register(ref, 'email', validateEmail)
-                  }}
-                />
-              </label>
+              <input
+                className={styles.landingFormInput}
+                name="email"
+                type="email"
+                placeholder="Email"
+                ref={(ref) => {
+                  emailRef.current = ref;
+                  register(ref, 'email', validateEmail)
+                }}
+              />
               <div>{inputErrors["email"] ? "error" : null}</div>
             </fieldset>
             <fieldset className="form-fieldset">
-              <label htmlFor="confirmEmail">
-                Confirm email
-                <input
-                  name="confirmEmail"
-                  type="email"
-                  defaultValue=""
-                  ref={(ref) => {
-                    confirmEmailRef.current = ref;
-                    register(ref, 'confirmEmail', validateEmail);
-                  }}
-                />
-              </label>
+              <input
+                className={styles.landingFormInput}
+                name="confirmEmail"
+                type="email"
+                placeholder="Confirm email"
+                ref={(ref) => {
+                  confirmEmailRef.current = ref;
+                  register(ref, 'confirmEmail', validateEmail);
+                }}
+              />
               <div>{inputErrors["confirmEmail"] ? "error" : null}</div>
-              <div>{!emailsMatch === true && "emails do not match"}</div>
+              {emailsMatch !== undefined && <div>{!emailsMatch && "emails do not match"}</div>}
             </fieldset>
             <fieldset>
-              <button type="submit">Send</button>
+              <Button className={styles.landingFormButton}>
+                <span>Send</span>
+              </Button>
             </fieldset>
           </div>
         )

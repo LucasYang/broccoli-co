@@ -7,15 +7,16 @@ interface ModalInterface {
   onClose: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
-export function Modal({ show, children, onClose }: ModalInterface) {
+export function Modal({ show, children }: ModalInterface) {
   const showHideClassName = show ? `${modalStyles.container} ${modalStyles.displayBlock}` : `${modalStyles.container} ${modalStyles.displayNone}`;
   return (
-    <div className={showHideClassName}>
-      <section className={modalStyles.main}>
-        {children}
-        <button type="button" onClick={onClose}>Close</button>
-      </section>
-    </div>
+    show ? (
+      <div className={showHideClassName}>
+        <section className={modalStyles.main}>
+          {children}
+        </section>
+      </div>
+    ) : null
   );
 }
 

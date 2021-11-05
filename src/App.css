@@ -5,12 +5,16 @@
 }
 
 .app__header {
-  background-color: #282c34;
-  color: white;
+  border-bottom: 1px solid #313131;
+  color: #787878;
   display: flex;
   flex-direction: column;
+  font-size: 1.2rem;
   justify-content: center;
   min-height: 12vh;
+  font-weight: 600;
+  word-spacing: 4px;
+  padding-left: 10rem;
 }
 
 .app__body {
@@ -23,10 +27,26 @@
 
 .app__footer {
   align-items: center;
-  background-color: #282c34;
-  color: white;
+  color: #787878;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 12vh;
+  border-top: 1px solid #313131;
+  font-size: 0.8rem;
+}
+
+.landing__heading {
+  font-size: 3.2rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  word-spacing: 4px;
+  color: #787878;
+}
+
+.landing__subheading {
+  font-size: 1.2rem;
+  word-spacing: 3px;
+  color: #A1A1A1;
+  margin: 2rem 0;
 }
