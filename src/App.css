@@ -36,6 +36,13 @@
   font-size: 0.8rem;
 }
 
+.app__footer__p {
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.6rem;
+  font-weight: 500;
+}
+
 .landing__heading {
   font-size: 3.2rem;
   font-weight: 500;
@@ -49,4 +56,9 @@
   word-spacing: 3px;
   color: #A1A1A1;
   margin: 2rem 0;
+  font-weight: 500;
+}
+
+.form-submit-fieldset {
+  margin: 3rem 0;
 }

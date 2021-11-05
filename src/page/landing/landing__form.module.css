@@ -41,9 +41,20 @@
   margin: 0.6rem 0;
 }
 
+.landingFormInputError {
+  outline: red auto 1px;
+}
+
 .landingFormButton {
   width: 100%;
   height: 3.2rem;
   box-sizing: border-box;
-  margin: 3rem 0;
+}
+
+.landingFormServerError {
+  font-size: 1rem;
+  margin-top: 1.6rem;
+  color: #7A7A7A;
+  font-style: italic;
+  font-weight: 500;
 }

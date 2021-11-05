@@ -1,0 +1,20 @@
+.allDoneContainer {
+  box-sizing: border-box;
+  width: 35rem;
+  padding: 0 4.5rem;
+  padding-bottom: 3rem;
+  min-height: 21rem;
+}
+
+.allDoneBody {
+  padding-bottom: 3.5rem;
+}
+
+.allDoneParagraph {
+  font-size: 1rem;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  color: #7A7A7A;
+  font-weight: 500;
+  line-height: 1.6rem;
+}
