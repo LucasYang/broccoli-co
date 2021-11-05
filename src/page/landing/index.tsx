@@ -1,19 +1,31 @@
 import React, { useState } from "react";
 import Modal from "../../components/Modal";
 import LandingPageForm from "./landing__form";
+import AllDone from "./landing__allDone";
 import Button from "../../components/Button";
 
 export function LandingPage() {
-  const [showModal, setShowModal] = useState(false);
+  const [showFormModal, setShowFormModal] = useState(false);
+  const [showDoneModal, setShowDoneModal] = useState(false);
 
-  const openModal = (e: React.MouseEvent<HTMLElement>) => {
+  const openFormModal = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
-    setShowModal(true);
+    setShowFormModal(true);
   }
 
-  const closeModal = (e: React.MouseEvent<HTMLElement>) => {
+  const closeFormModal = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
-    setShowModal(false);
+    setShowFormModal(false);
+  }
+
+  const closeDoneModal = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    setShowDoneModal(false);
+  }
+
+  const onLandingFormSuccess = () => {
+    setShowFormModal(false);
+    setShowDoneModal(true);
   }
 
   return (
@@ -22,10 +34,13 @@ export function LandingPage() {
         <h1 className="landing__heading">A better way</h1>
         <h1 className="landing__heading">to enjoy every day.</h1>
         <p className="landing__subheading">Be the first to know when we launch.</p>
-        <Button onClick={openModal}><span>Request an invite</span></Button>
+        <Button onClick={openFormModal}><span>Request an invite</span></Button>
       </div>
-      <Modal show={showModal} onClose={closeModal}>
-        <LandingPageForm />
+      <Modal show={showFormModal} onClose={closeFormModal}>
+        <LandingPageForm onSuccess={onLandingFormSuccess} />
+      </Modal>
+      <Modal show={showDoneModal} onClose={closeDoneModal}>
+        <AllDone onConfirm={closeDoneModal} />
       </Modal>
     </>
   );
