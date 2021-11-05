@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import formStyles from './index.module.css';
 interface FormInterface {
   name: string;
-  handleSubmit: (inputsValid: boolean) => any;
+  handleSubmit: (inputsValid: boolean, inputValues: { [key: string]: string }) => any;
   children: (props: any) => React.ReactElement;
 }
 
@@ -13,7 +13,11 @@ export function Form({ children, name, handleSubmit }: FormInterface) {
   function submitHandler(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const inputsValid = validateFormInputs();
-    handleSubmit(inputsValid);
+    const inputValues: { [key: string]: string } = {};
+    for (const [key, obj] of Object.entries(childrenRef.current)) {
+      inputValues[key] = obj.ref.value;
+    }
+    handleSubmit(inputsValid, inputValues);
   }
 
   function validateFormInputs() {
