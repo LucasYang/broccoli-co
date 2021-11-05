@@ -5,6 +5,7 @@ interface ButtonInterface {
   children: React.ReactElement;
   className?: string;
   onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+  disabled?: boolean;
 }
 
 export function Button({ children, className, ...rest }: ButtonInterface) {
