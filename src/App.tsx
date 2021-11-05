@@ -10,8 +10,8 @@ function App() {
         <LandingPage />
       </main>
       <footer className="app__footer">
-        <p>made with [love] in Melbourne.</p>
-        <p>copy 2016 Broccoli & Co. All rights reserved.</p>
+        <p className="app__footer__p">Made with ♥ in Melbourne.</p>
+        <p className="app__footer__p">© {new Date().getFullYear()} Broccoli & Co. All rights reserved.</p>
       </footer>
     </div>
   );
