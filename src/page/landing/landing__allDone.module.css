@@ -18,3 +18,13 @@
   font-weight: 500;
   line-height: 1.6rem;
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .allDoneContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0 1.5rem;
+  }
+}
