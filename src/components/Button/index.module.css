@@ -17,6 +17,7 @@
   cursor: pointer;
   outline: 0;
   border: 1px solid #ADADAD;
+  user-select: none;
 }
 
 .btn:hover {
