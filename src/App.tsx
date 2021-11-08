@@ -8,11 +8,14 @@ function App() {
     <div className="app">
       <header className="app__header">BROCCOLI & CO.</header>
       <main className="app__body">
+        {/* todo: this is awakward, should be provided with context API, and provided in test using wrapper component */}
         <LandingPage postLandingForm={postLandingForm} />
       </main>
       <footer className="app__footer">
         <p className="app__footer__p">Made with ♥ in Melbourne.</p>
-        <p className="app__footer__p">© {new Date().getFullYear()} Broccoli & Co. All rights reserved.</p>
+        <p className="app__footer__p">
+          © {new Date().getFullYear()} Broccoli & Co. All rights reserved.
+        </p>
       </footer>
     </div>
   );

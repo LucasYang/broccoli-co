@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './index.module.css';
+import styles from "./index.module.css";
 
 interface ButtonInterface {
   children: React.ReactElement;
@@ -10,7 +10,9 @@ interface ButtonInterface {
 
 export function Button({ children, className, ...rest }: ButtonInterface) {
   return (
-    <button {...rest} className={`${styles.btn} ${className}`}>{children}</button>
+    <button {...rest} className={`${styles.btn} ${className}`}>
+      {children}
+    </button>
   );
 }
 

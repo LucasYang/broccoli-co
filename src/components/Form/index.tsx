@@ -1,8 +1,11 @@
-import React, { useRef, useState } from 'react';
-import formStyles from './index.module.css';
+import React, { useRef, useState } from "react";
+import formStyles from "./index.module.css";
 interface FormInterface {
   name: string;
-  handleSubmit: (inputsValid: boolean, inputValues: { [key: string]: string }) => any;
+  handleSubmit: (
+    inputsValid: boolean,
+    inputValues: { [key: string]: string }
+  ) => any;
   children: (props: any) => React.ReactElement;
 }
 
@@ -39,7 +42,11 @@ export function Form({ children, name, handleSubmit }: FormInterface) {
     return Object.values(newErrors).filter((e) => e !== null).length === 0;
   }
 
-  function register(ref: HTMLFormElement, name: string, validationFunc: (str: string) => any) {
+  function register(
+    ref: HTMLFormElement,
+    name: string,
+    validationFunc: (str: string) => any
+  ) {
     childrenRef.current[name] = {
       ref,
       validationFunc,

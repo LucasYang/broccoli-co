@@ -1,11 +1,10 @@
-import React from 'react';
-import styles from './landing__allDone.module.css';
-import formStyles from './landing__form.module.css';
-import Button from '../../components/Button';
-
+import React from "react";
+import styles from "./landing__allDone.module.css";
+import formStyles from "./landing__form.module.css";
+import Button from "../../components/Button";
 
 interface AllDoneInterface {
-  onConfirm: (e: React.MouseEvent<HTMLElement>) => void
+  onConfirm: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 export function AllDone({ onConfirm }: AllDoneInterface) {
@@ -16,8 +15,12 @@ export function AllDone({ onConfirm }: AllDoneInterface) {
         <hr className={formStyles.landingFormHR} />
       </div>
       <div className={styles.allDoneBody}>
-        <p className={styles.allDoneParagraph}>You will be one of the first to experience</p>
-        <p className={styles.allDoneParagraph}>Broccoli & Co. when we launch.</p>
+        <p className={styles.allDoneParagraph}>
+          You will be one of the first to experience
+        </p>
+        <p className={styles.allDoneParagraph}>
+          Broccoli & Co. when we launch.
+        </p>
       </div>
       <Button className={formStyles.landingFormButton} onClick={onConfirm}>
         <span>OK</span>
