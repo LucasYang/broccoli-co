@@ -1,5 +1,6 @@
 import React from "react";
 import LandingPage from "./page/landing";
+import { postLandingForm } from "./endpoints/landing__invite";
 import "./App.css";
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
     <div className="app">
       <header className="app__header">BROCCOLI & CO.</header>
       <main className="app__body">
-        <LandingPage />
+        <LandingPage postLandingForm={postLandingForm} />
       </main>
       <footer className="app__footer">
         <p className="app__footer__p">Made with ♥ in Melbourne.</p>

@@ -10,7 +10,7 @@ interface AllDoneInterface {
 
 export function AllDone({ onConfirm }: AllDoneInterface) {
   return (
-    <div className={styles.allDoneContainer}>
+    <div className={styles.allDoneContainer} data-testid="landing-alldone">
       <div className={formStyles.landingFormHeader}>
         <h1 className={formStyles.landingFormHeading}>All done!</h1>
         <hr className={formStyles.landingFormHR} />

@@ -2,14 +2,23 @@ import React, { useRef, useState } from "react";
 import Form from "../../components/Form";
 import Button from "../../components/Button";
 import { isEmailValid, stringsMatch, NAME_MIN_LENGTH } from "../../utils/formValidation";
-import { landingInviteDataFactory, postLandingForm } from "../../endpoints/landing__invite";
+import { landingInviteDataFactory } from "../../endpoints/landing__invite";
+import {
+  LANDING_FORM_TEST_ID,
+  LANDING_FORM_INPUT_CONFIRM_EMAIL_TEST_ID,
+  LANDING_FORM_INPUT_EMAIL_TEST_ID,
+  LANDING_FORM_INPUT_FULLNAME_TEST_ID,
+  LANDING_FORM_SUBMIT_BUTTON_TEST_ID,
+} from '../../tests/_setup';
 import styles from './landing__form.module.css';
+import { LandingFormRequestBody } from '../../endpoints/landing__invite';
 
 interface LandingPageFormInterface {
   onSuccess: () => void;
+  postLandingForm: (data: LandingFormRequestBody) => Promise<any>;
 }
 
-export function LandingPageForm({ onSuccess }: LandingPageFormInterface) {
+export function LandingPageForm({ onSuccess, postLandingForm }: LandingPageFormInterface) {
   const emailRef = useRef<HTMLInputElement | null>();
   const confirmEmailRef = useRef<HTMLInputElement | null>();
   const [emailsMatch, setEmailsMatch] = useState<boolean | undefined>();
@@ -58,7 +67,7 @@ export function LandingPageForm({ onSuccess }: LandingPageFormInterface) {
       {({ inputErrors, register }: any) => {
         // form content
         return (
-          <div className={styles.landingFormContainer}>
+          <div className={styles.landingFormContainer} data-testid={LANDING_FORM_TEST_ID}>
             <div className={styles.landingFormHeader}>
               <h1 className={styles.landingFormHeading}>Request an invite</h1>
               <hr className={styles.landingFormHR} />
@@ -69,6 +78,7 @@ export function LandingPageForm({ onSuccess }: LandingPageFormInterface) {
                 name="name"
                 type="text"
                 placeholder="Full name"
+                data-testid={LANDING_FORM_INPUT_FULLNAME_TEST_ID}
                 ref={(ref) => register(ref, 'name', validateFullName)} />
               <div>{inputErrors["name"] && inputErrors["name"]}</div>
             </fieldset>
@@ -78,6 +88,7 @@ export function LandingPageForm({ onSuccess }: LandingPageFormInterface) {
                 name="email"
                 type="email"
                 placeholder="Email"
+                data-testid={LANDING_FORM_INPUT_EMAIL_TEST_ID}
                 ref={(ref) => {
                   emailRef.current = ref;
                   register(ref, 'email', validateEmail)
@@ -91,6 +102,7 @@ export function LandingPageForm({ onSuccess }: LandingPageFormInterface) {
                 name="confirmEmail"
                 type="email"
                 placeholder="Confirm email"
+                data-testid={LANDING_FORM_INPUT_CONFIRM_EMAIL_TEST_ID}
                 ref={(ref) => {
                   confirmEmailRef.current = ref;
                   register(ref, 'confirmEmail', validateEmail);
@@ -100,7 +112,11 @@ export function LandingPageForm({ onSuccess }: LandingPageFormInterface) {
               {emailsMatch !== undefined && <div>{!emailsMatch && "emails do not match"}</div>}
             </fieldset>
             <fieldset className="form-submit-fieldset">
-              <Button className={styles.landingFormButton} disabled={sendingForm}>
+              <Button
+                className={styles.landingFormButton}
+                disabled={sendingForm}
+                data-testid={LANDING_FORM_SUBMIT_BUTTON_TEST_ID}
+              >
                 <span>{sendingForm ? 'Sending, please wait...' : 'Send'}</span>
               </Button>
               <div className={styles.landingFormServerError}>{serverError}</div>
