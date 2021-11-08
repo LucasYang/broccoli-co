@@ -13,6 +13,8 @@ app is served at https://lucasyang.github.io/broccoli-co/
 ### `npm test`
 ### `npm run build`
 ### `npm run eject`
+### `npm run lint`
+### `npm run prettier-format`
 
 ## TO DOs
 A lot can be fine tuned. Maybe I'll spend a bit of time playing around with it in the future
